@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agenda.View.ListaGeral"
+             Title="{Binding Titulo}">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Entry/>
+            <ScrollView>
+                <StackLayout>
+                    <ListView ItemsSource="{Binding Lista}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Image Grid.Column="0" Source="{Binding Imagem}" />
+                                        <StackLayout Grid.Column="1">
+                                            <Label Text="{Binding Nome}" />
+                                            <Label Text="{Binding Hora}"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

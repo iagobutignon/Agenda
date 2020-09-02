@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agenda.View.Detalhe"
+             Title="Detalhe da Tarefa">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <ScrollView>
+                <StackLayout>                    
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Nome" FontAttributes="Bold" />
+                        <Entry x:Name="Nome" IsReadOnly="True" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="Data" FontAttributes="Bold" />
+                            <Entry x:Name="Data" IsReadOnly="True" />
+                        </StackLayout>
+                        <Image x:Name="Imagem" HorizontalOptions="End" MinimumHeightRequest="50" MinimumWidthRequest="50" WidthRequest="50" HeightRequest="50"/>
+                    </StackLayout>                    
+                    <StackLayout>
+                        <Label Text="Descrição" FontAttributes="Bold" />
+                        <Editor x:Name="Descricao" HeightRequest="150" IsReadOnly="True" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Data de abertura" FontAttributes="Bold" />
+                        <Entry x:Name="DataAbertura" IsReadOnly="True" />
+                    </StackLayout>
+                    <StackLayout x:Name="stackDataFinalizacao">
+                        <Label Text="Data de Finalização" FontAttributes="Bold" />
+                        <Entry x:Name="DataFinalizacao" IsReadOnly="True" />
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

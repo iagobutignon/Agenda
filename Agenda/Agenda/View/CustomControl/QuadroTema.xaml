@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agenda.View.CustomControl.QuadroTema">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="FundoTitulo">#073b52</Color>
+            <Color x:Key="TextoTitulo">#ffffff</Color>
+            <Color x:Key="FundoApp">#ffffff</Color>
+            <Color x:Key="TextoApp">#000000</Color>
+
+            <Style x:Key="StackPersonalizar" TargetType="StackLayout">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Spacing" Value="0"/>
+                <Setter Property="HeightRequest" Value="100"/>
+            </Style>
+                <Style TargetType="Label" x:Key="LabelTitulo">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoTitulo}" />
+            </Style>
+            <Style TargetType="Label" x:Key="LabelApp">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextoApp}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoApp}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Frame Padding="0">
+            <StackLayout Style="{DynamicResource StackPersonalizar}">
+                <Label x:Name="LabelTitulo" Style="{StaticResource LabelTitulo}" />
+                <Label x:Name="LabelApp" Style="{StaticResource LabelApp}" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TemaSelecionado" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

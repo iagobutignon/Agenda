@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ini="clr-namespace:Agenda.View"
+             x:Class="Agenda.View.Menu">
+    <MasterDetailPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelMenu" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Margin" Value="15, 0, 0, 0"/>
+            </Style>
+            <Style x:Key="ImageMenu" TargetType="Image">
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>                
+            </Style>
+        </ResourceDictionary>
+    </MasterDetailPage.Resources>
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <StackLayout Style="{StaticResource StackMenuConteudo}" VerticalOptions="FillAndExpand" Spacing="0">
+                <StackLayout Style="{StaticResource StackTituloApp}" Padding="15">
+                    <Label Style="{StaticResource LabelTituloApp}" Text="Menu" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="Transparent"/>
+                </StackLayout>
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <StackLayout Style="{StaticResource StackMenuConteudo}" Padding="15" Spacing="10" VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Style="{StaticResource ImageMenu}" Source="Grafico.png"/>
+                            <Label Style="{StaticResource LabelMenu}" Text="Geral"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BotaoGeral"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Style="{StaticResource ImageMenu}" Source="NovaTarefa.png"/>
+                            <Label Style="{StaticResource LabelMenu}" Text="Adicionar"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BotaoNovaTarefa"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Style="{StaticResource ImageMenu}" Source="CheckOff.png"/>
+                            <Label Style="{StaticResource LabelMenu}" Text="Pendentes"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BotaoTarefasPendentes"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Style="{StaticResource ImageMenu}" Source="CheckOn.png"/>
+                            <Label Style="{StaticResource LabelMenu}" Text="Concluídas"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BotaoTarefasFinalizadas"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Style="{StaticResource ImageMenu}" Source="Calendario.png"/>
+                            <Label Style="{StaticResource LabelMenu}" Text="Calendário"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BotaoCalendario"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                            <Image Style="{StaticResource ImageMenu}" Source="RodaCor.png"/>
+                            <Label Style="{StaticResource LabelMenu}" Text="Configurar"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BotaoConfigurar"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>  
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ini:Geral/>
+            </x:Arguments>
+        </NavigationPage>        
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

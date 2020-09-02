@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agenda.View.Cadastro"
+             Title="Adicionar">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout>
+                        <Label Text="Nome" FontAttributes="Bold" />
+                        <Entry x:Name="Nome" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Data" FontAttributes="Bold" />
+                        <StackLayout Orientation="Horizontal">
+                            <DatePicker x:Name="Data" HorizontalOptions="StartAndExpand" />
+                            <TimePicker x:Name="Hora" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Descrição" FontAttributes="Bold" />
+                        <Editor x:Name="Descricao" HeightRequest="100" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Prioridade" FontAttributes="Bold" />
+                        <StackLayout x:Name="SLPrioridades">                            
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Image Opacity="0.5" HeightRequest="40" WidthRequest="40" Source="p4.png" />
+                                <Label Opacity="0.5"  FontSize="16" FontAttributes="Bold" Text="Máxima" VerticalOptions="CenterAndExpand" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PrioridadeSelectAction" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Image Opacity="0.5" HeightRequest="40" WidthRequest="40" Source="p3.png" />
+                                <Label Opacity="0.5"  FontSize="16" FontAttributes="Bold" Text="Alta" VerticalOptions="CenterAndExpand" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PrioridadeSelectAction" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Image Opacity="0.5" HeightRequest="40" WidthRequest="40" Source="p2.png" />
+                                <Label Opacity="0.5"  FontSize="16" FontAttributes="Bold" Text="Média" VerticalOptions="CenterAndExpand" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PrioridadeSelectAction" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Image Opacity="0.5" HeightRequest="40" WidthRequest="40" Source="p1.png" />
+                                <Label Opacity="0.5"  FontSize="16" FontAttributes="Bold" Text="Baixa" VerticalOptions="CenterAndExpand" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PrioridadeSelectAction" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>        
+            <Button Clicked="SalvarAction" Padding="100, 7" Text="OK" HorizontalOptions="Center" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"     
+             xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             x:Class="Agenda.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="FundoTitulo">#073b52</Color>
+            <Color x:Key="TextoTitulo">#ffffff</Color>
+            <Color x:Key="FundoApp">#ffffff</Color>
+            <Color x:Key="TextoApp">#000000</Color>
+            
+            <Style TargetType="StackLayout">
+                <Setter Property="Spacing" Value="0"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextoApp}"/>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{DynamicResource TextoApp}"/>
+                <Setter Property="PlaceholderColor" Value="{DynamicResource TextoApp}"/>
+            </Style>
+            <Style TargetType="Editor">
+                <Setter Property="TextColor" Value="{DynamicResource TextoApp}"/>
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="{DynamicResource TextoApp}"/>
+            </Style>
+            <Style TargetType="TimePicker">
+                <Setter Property="TextColor" Value="{DynamicResource TextoApp}"/>
+            </Style>
+            <Style TargetType="Slider">
+                <Setter Property="ThumbColor" Value="{DynamicResource FundoTitulo}"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoTitulo}"/>
+                    <Setter Property="TextColor" Value="{DynamicResource TextoTitulo}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Name="BarraTitulo" ApplyToDerivedTypes="true" TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource FundoTitulo}"/>
+                <Setter Property="BarTextColor" Value="{DynamicResource TextoTitulo}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoApp}"/>
+            </Style>
+            <Style x:Name="BarraTituloTab" ApplyToDerivedTypes="true" TargetType="TabbedPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource FundoTitulo}"/>
+                <Setter Property="BarTextColor" Value="{DynamicResource TextoTitulo}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoApp}"/>
+            </Style>
+            <Style x:Key="StackTituloApp" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoTitulo}"/>
+            </Style>
+            <Style x:Key="StackMenuConteudo" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoApp}"/>
+            </Style>
+            <Style x:Key="LabelTituloApp" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextoTitulo}"/>
+            </Style>
+            <Style x:Key="LabelTarefaCalendario" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextoTitulo}"/>
+            </Style>
+            <Style x:Key="Calendario" TargetType="controls:Calendar">
+                <Setter Property="EventIndicatorColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="EventIndicatorTextColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="EventIndicatorSelectedColor" Value="{DynamicResource FundoTitulo}" />
+                <Setter Property="EventIndicatorSelectedTextColor" Value="{DynamicResource FundoTitulo}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoTitulo}" />
+                <Setter Property="ArrowsColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="DeselectedDayTextColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="SelectedDateColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="OtherMonthDayColor" Value="Gray" />
+                <Setter Property="TodayOutlineColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="DaysTitleColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="YearLabelColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="MonthLabelColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="SelectedDayTextColor" Value="{DynamicResource FundoTitulo}" />
+                <Setter Property="SelectedDayBackgroundColor" Value="{DynamicResource TextoTitulo}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             x:Class="Agenda.View.Calendario"
+             Title="Calendário de Tarefas">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EstiloTitulo" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="VerticalTextAlignment" Value="End"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style x:Key="EstiloDia" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+            <Style x:Key="EstiloImagem" TargetType="Image">
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="50"/>
+            </Style>
+            <Style x:Key="EstiloLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource Key=TextoApp}" />
+            </Style>
+            <Style x:Key="EstiloFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Key=FundoApp}" />
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="BorderColor" Value="{DynamicResource Key=FundoTitulo}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout x:Name="StackCalendario" BackgroundColor="{DynamicResource FundoTitulo}" Padding="15">        
+        <controls:Calendar x:Name="ViewCalendario" Events="{Binding Events}" DaysTitleLabelStyle="{StaticResource Key=EstiloTitulo}" DaysLabelStyle="{StaticResource Key=EstiloDia}" Style="{DynamicResource Calendario}"  DaysTitleHeight="50">
+            <controls:Calendar.EventTemplate>
+                <DataTemplate>
+                    <ScrollView>
+                        <StackLayout Padding="0, 10">
+                            <Frame x:Name="FrameTarefa" Style="{DynamicResource Key=EstiloFrame}">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Image Style="{StaticResource EstiloImagem}" Source="{Binding Imagem}" />
+                                        <Label Style="{DynamicResource EstiloLabel}" Text="{Binding Nome}" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="16" />
+                                    </StackLayout>
+                                    <StackLayout Padding="10">
+                                        <Label Style="{DynamicResource EstiloLabel}" Text="{Binding Descricao}" LineBreakMode="WordWrap" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DetalheEvento" CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                    </ScrollView>
+                </DataTemplate>
+            </controls:Calendar.EventTemplate>
+        </controls:Calendar>
+    </StackLayout>    
+</ContentPage>
