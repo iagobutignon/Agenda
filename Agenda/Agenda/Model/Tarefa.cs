@@ -10,7 +10,7 @@ namespace Agenda.Model
     public class Tarefa
     {
         [PrimaryKey]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public DateTime Data { get; set; }
@@ -21,7 +21,7 @@ namespace Agenda.Model
         public string Hora { get { return Data.TimeOfDay.ToString(); } protected set {; } } 
         public Tarefa()
         {
-            ID = Guid.NewGuid();
+            Id = Guid.NewGuid();
             DataAbertura = DateTime.Now;
         }
     }

@@ -45,19 +45,19 @@ namespace Agenda.View
             if (Nome.Text == null || Nome.Text.Trim().Length <= 0)
             {
                 erroExiste = true;
-                DisplayAlert("Erro", "Tarefa não digitada", "Okay");
+                //DisplayAlert("Erro", "Tarefa não digitada", "Okay");
             }
 
             if (Descricao.Text == null || Descricao.Text.Trim().Length <= 0)
             {
                 erroExiste = true;
-                DisplayAlert("Erro", "Tarefa não digitada", "Okay");
+                //DisplayAlert("Erro", "Tarefa não digitada", "Okay");
             }
 
             if (Prioridade <= 0)
             {
                 erroExiste = true;
-                DisplayAlert("Erro", "Prioridade não escolhida", "Okay");
+                //DisplayAlert("Erro", "Prioridade não escolhida", "Okay");
             }
 
             if (erroExiste == false)
@@ -74,6 +74,15 @@ namespace Agenda.View
                 
                 App.Current.MainPage = new View.Menu();
             }
+            else
+            {
+                erro();
+            }
+              
+        }
+        async void erro()
+        {
+            await BotaoSalvar.ScaleTo(1, 1000, Easing.BounceIn);
         }
     }
 }

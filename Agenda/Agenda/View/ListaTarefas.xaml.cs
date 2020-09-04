@@ -11,13 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace Agenda.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ListaGeral : ContentPage
+    public partial class ListaTarefas : ContentPage
     {
-        public ListaGeral(List<Tarefa> tarefas, string titulo)
+        public ListaTarefas(List<Tarefa> tarefas, string titulo)
         {
             InitializeComponent();
 
-            BindingContext = new ViewModel.ListaGeralViewModel(tarefas, titulo);
+            BindingContext = new ViewModel.ListaTarefasViewModel(tarefas, titulo);
         }
     }
 }

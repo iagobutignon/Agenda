@@ -31,42 +31,42 @@
                             <Image Style="{StaticResource ImageMenu}" Source="Grafico.png"/>
                             <Label Style="{StaticResource LabelMenu}" Text="Geral"/>
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="BotaoGeral"/>
+                                <TapGestureRecognizer Command="{Binding GeralCommand}" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Image Style="{StaticResource ImageMenu}" Source="NovaTarefa.png"/>
                             <Label Style="{StaticResource LabelMenu}" Text="Adicionar"/>
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="BotaoNovaTarefa"/>
+                                <TapGestureRecognizer Command="{Binding NovaTarefaCommand}" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Image Style="{StaticResource ImageMenu}" Source="CheckOff.png"/>
                             <Label Style="{StaticResource LabelMenu}" Text="Pendentes"/>
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="BotaoTarefasPendentes"/>
+                                <TapGestureRecognizer Command="{Binding TarefasPendentesCommand}" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Image Style="{StaticResource ImageMenu}" Source="CheckOn.png"/>
                             <Label Style="{StaticResource LabelMenu}" Text="Concluídas"/>
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="BotaoTarefasFinalizadas"/>
+                                <TapGestureRecognizer Command="{Binding TarefasConcluidasCommand}" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Image Style="{StaticResource ImageMenu}" Source="Calendario.png"/>
                             <Label Style="{StaticResource LabelMenu}" Text="Calendário"/>
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="BotaoCalendario"/>
+                                <TapGestureRecognizer Command="{Binding CalendarioCommand}" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
-                            <Image Style="{StaticResource ImageMenu}" Source="RodaCor.png"/>
+                            <Image Style="{StaticResource ImageMenu}" Source="Gear.png"/>
                             <Label Style="{StaticResource LabelMenu}" Text="Configurar"/>
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="BotaoConfigurar"/>
+                                <TapGestureRecognizer Command="{Binding ConfigurarCommand}" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>  
                     </StackLayout>

@@ -2,19 +2,12 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
-using Xamarin.Forms.Markup;
-using Xamarin.Forms.Markup.LeftToRight;
-using Xamarin.Forms.Xaml;
 
-namespace Agenda.View.CustomControl
+namespace Agenda.ViewModel.Controles
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class QuadroTema : ContentView
+    class QuadroTemaViewModel
     {
         public string Titulo { get; set; }
         public string Nome { get; set; }
@@ -22,27 +15,27 @@ namespace Agenda.View.CustomControl
         public string TextoTitulo { get; set; }
         public string FundoApp { get; set; }
         public string TextoApp { get; set; }
-        public QuadroTema(string titulo, string nome, string fundoTitulo, string textoTitulo, string fundoApp, string textoApp)
-        {
-            InitializeComponent();
+        public Command TemaSelecionado { get; set; }
 
+        public QuadroTemaViewModel(string titulo, Tema tema, ContentView quadroTema)
+        {
             Titulo = titulo;
-            Nome = nome;
-            FundoTitulo = fundoTitulo;
-            TextoTitulo = textoTitulo;
-            FundoApp = fundoApp;
-            TextoApp = textoApp;
+            Nome = tema.Nome;
+            FundoTitulo = tema.FundoTitulo;
+            TextoTitulo = tema.TextoTitulo;
+            FundoApp = tema.FundoApp;
+            TextoApp = tema.TextoApp;
 
-            ((Label)LabelTitulo).Text = titulo;
-            ((Label)LabelApp).Text = nome;
-            Resources["FundoTitulo"] = fundoTitulo;
-            Resources["TextoTitulo"] = textoTitulo;
-            Resources["FundoApp"] = fundoApp;
-            Resources["TextoApp"] = textoApp;
+            quadroTema.Resources["FundoTitulo"] = FundoTitulo;
+            quadroTema.Resources["TextoTitulo"] = TextoTitulo;
+            quadroTema.Resources["FundoApp"] = FundoApp;
+            quadroTema.Resources["TextoApp"] = TextoApp;
+
+            TemaSelecionado = new Command(TemaSelecionadoCommand);
         }
-        public void TemaSelecionado(object sender, EventArgs args)
+        private void TemaSelecionadoCommand()
         {
-            var app = (App)App.Current;
+            var app = (AppViewModel)App.Current.BindingContext;
             app.TemaAlterado(FundoTitulo, TextoTitulo, FundoApp, TextoApp);
 
             Tema tema = new Tema()

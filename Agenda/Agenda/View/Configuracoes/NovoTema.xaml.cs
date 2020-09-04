@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Agenda.View.Config
+namespace Agenda.View.Configuracoes
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NovoTema : ContentPage
@@ -16,7 +16,7 @@ namespace Agenda.View.Config
         {
             InitializeComponent();
 
-            BindingContext = new ViewModel.NovoTemaViewModel();
+            BindingContext = new ViewModel.Configuracoes.NovoTemaViewModel();
 
             BotaoSelecionado(BotaoTextoTitulo, null);
             SliderModificado(null, null);
@@ -32,12 +32,18 @@ namespace Agenda.View.Config
         }
         public void SliderModificado(object sender, EventArgs args)
         {
-            var NovoTemaViewModel = BindingContext as ViewModel.NovoTemaViewModel;
+            var NovoTemaViewModel = BindingContext as ViewModel.Configuracoes.NovoTemaViewModel;
 
             LabelTitulo.TextColor = Color.FromHex(NovoTemaViewModel.TextoTitulo);
             LabelTitulo.BackgroundColor = Color.FromHex(NovoTemaViewModel.FundoTitulo);
             LabelApp.TextColor = Color.FromHex(NovoTemaViewModel.TextoApp);
             LabelApp.BackgroundColor = Color.FromHex(NovoTemaViewModel.FundoApp);
+        }
+        public void BotaoSalvar(object sender, EventArgs args)
+        {
+            //var Pagina = ((MasterDetailPage)(App.Current.MainPage)).Detail;
+            //((TabbedPage)Pagina).SelectedItem = (ContentPage)((TabbedPage)Pagina).Children[1];
+            App.Current.MainPage = new Agenda.View.Menu();
         }
     }
 }

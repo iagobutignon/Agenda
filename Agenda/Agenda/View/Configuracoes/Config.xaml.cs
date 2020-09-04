@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Agenda.View.Config
+namespace Agenda.View.Configuracoes
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Configurar : TabbedPage
+    public partial class Config : ContentPage
     {
-        public Configurar()
+        public Config()
         {
             InitializeComponent();
         }

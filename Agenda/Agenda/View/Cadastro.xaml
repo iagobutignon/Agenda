@@ -57,7 +57,7 @@
                     </StackLayout>
                 </StackLayout>
             </ScrollView>        
-            <Button Clicked="SalvarAction" Padding="100, 7" Text="OK" HorizontalOptions="Center" VerticalOptions="EndAndExpand" />
+            <Button x:Name="BotaoSalvar" Clicked="SalvarAction" Padding="100, 7" Text="OK" HorizontalOptions="Center" VerticalOptions="EndAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

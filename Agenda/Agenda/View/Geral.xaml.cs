@@ -20,19 +20,7 @@ namespace Agenda.View
         {
             InitializeComponent();
 
-            BindingContext = new ViewModel.GeralViewModel();
-        }
-
-        public void ListarTarefas(object sender, EventArgs args)
-        {
-            StackLayout stack = (StackLayout)sender;
-            Label label = (Label)stack.Children[0];
-            TapGestureRecognizer gest = (TapGestureRecognizer)stack.GestureRecognizers[0];
-
-            string titulo = label.Text;
-            List<Tarefa> tarefas = gest.CommandParameter as List<Tarefa>;
-
-            Navigation.PushAsync(new ListaGeral(tarefas, titulo));
+            BindingContext = new ViewModel.GeralViewModel(this);            
         }
     }
 }

@@ -7,9 +7,10 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Agenda.Banco;
 using Agenda.Model;
+using Agenda.ViewModel;
 using Newtonsoft.Json;
 
-namespace Agenda.ViewModel
+namespace Agenda.ViewModel.Configuracoes
 {
     class NovoTemaViewModel : INotifyPropertyChanged
     {        
@@ -53,28 +54,49 @@ namespace Agenda.ViewModel
             FundoTitulo = "#073b52";
             TextoTitulo = "#ffffff";
             FundoApp = "#ffffff";
-            TextoApp = "#000000";         
+            TextoApp = "#000000";
+            FundoTituloCommand();
+            FundoAppCommand();
+            TextoTituloCommand();
+            TextoAppCommand();
         }
         private void FundoTituloCommand()
         {
             Escolha = 0;
+            System.Drawing.Color cor = Xamarin.Forms.Color.FromHex(FundoTitulo);
+            R = cor.R;
+            G = cor.G;
+            B = cor.B;
         }
         private void TextoTituloCommand()
         {
             Escolha = 1;
+            System.Drawing.Color cor = Xamarin.Forms.Color.FromHex(TextoTitulo);
+            R = cor.R;
+            G = cor.G;
+            B = cor.B;
         }
         private void FundoAppCommand()
         {
             Escolha = 2;
+            System.Drawing.Color cor = Xamarin.Forms.Color.FromHex(FundoApp);
+            R = cor.R;
+            G = cor.G;
+            B = cor.B;
         }
         private void TextoAppCommand()
         {
             Escolha = 3;
+            System.Drawing.Color cor = Xamarin.Forms.Color.FromHex(TextoApp);
+            R = cor.R;
+            G = cor.G;
+            B = cor.B;
         }
         private void AplicarCommand()
         {
-            var app = (App)App.Current;
+            var app = (AppViewModel)App.Current.BindingContext;
             app.TemaAlterado(FundoTitulo, TextoTitulo, FundoApp, TextoApp);
+            
 
             Tema tema = new Tema()
             {
@@ -94,6 +116,9 @@ namespace Agenda.ViewModel
         }
         private void SalvarCommand()
         {
+            var app = (AppViewModel)App.Current.BindingContext;
+            app.TemaAlterado(FundoTitulo, TextoTitulo, FundoApp, TextoApp);
+
             DatabaseTema database = new DatabaseTema();
             Tema tema = new Tema() 
             { 
@@ -104,6 +129,15 @@ namespace Agenda.ViewModel
                 TextoApp = this.TextoApp
             };
             database.Salvar(tema);
+
+            string json = JsonConvert.SerializeObject(tema);
+
+            if (App.Current.Properties.ContainsKey("Tema"))
+                App.Current.Properties.Remove("Tema");
+
+            App.Current.Properties.Add("Tema", json);
+
+            App.Current.MainPage = new Agenda.View.Menu();
         }
         private void IsPropertyChanged(string propertyName)
         {

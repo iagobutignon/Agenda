@@ -17,21 +17,7 @@ namespace Agenda.View
         {
             InitializeComponent();
 
-            Nome.Text = tarefa.Nome;
-            Data.Text = tarefa.Data.ToString();
-            Descricao.Text = tarefa.Descricao;
-            Imagem.Source = tarefa.Imagem;
-            DataAbertura.Text = tarefa.DataAbertura.ToString();
-            
-            if (tarefa.DataFinalizacao != null)
-            {
-                DataFinalizacao.Text = tarefa.DataFinalizacao.ToString();
-            }
-            else
-            {
-                stackDataFinalizacao.IsVisible = false;
-            }
-                
+            BindingContext = new ViewModel.DetalheViewModel(tarefa);         
         }
     }
 }

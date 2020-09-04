@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Agenda.ViewModel
 {
-    class ListaGeralViewModel
+    class ListaTarefasViewModel
     {
         public List<Tarefa> Lista { get; set; }
         public string Titulo { get; set; }
-        public ListaGeralViewModel(List<Tarefa> tarefas, string titulo)
+        public ListaTarefasViewModel(List<Tarefa> tarefas, string titulo)
         {
             Lista = tarefas;
             Titulo = titulo;

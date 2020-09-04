@@ -19,8 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\Config\Temas.xaml.cs">
+    <Compile Update="View\Configuracoes\Config.xaml.cs">
+      <DependentUpon>Config.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Configuracoes\Temas.xaml.cs">
       <DependentUpon>Temas.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\ListaTarefas.xaml.cs">
+      <DependentUpon>ListaTarefas.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\TarefasPendentes.xaml.cs">
       <DependentUpon>TarefasPendentes.xaml</DependentUpon>
@@ -34,16 +40,16 @@
     <EmbeddedResource Update="View\Calendario.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Config\Configuracoes.xaml">
+    <EmbeddedResource Update="View\Configuracoes\Config.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Config\Configurar.xaml">
+    <EmbeddedResource Update="View\Configuracoes\Configurar.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Config\NovoTema.xaml">
+    <EmbeddedResource Update="View\Configuracoes\NovoTema.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\CustomControl\QuadroTema.xaml">
+    <EmbeddedResource Update="View\Controles\QuadroTema.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Detalhe.xaml">
@@ -52,10 +58,10 @@
     <EmbeddedResource Update="View\Geral.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\ListaGeral.xaml">
+    <EmbeddedResource Update="View\ListaTarefas.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Config\Temas.xaml">
+    <EmbeddedResource Update="View\Configuracoes\Temas.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\TarefasFinalizadas.xaml">

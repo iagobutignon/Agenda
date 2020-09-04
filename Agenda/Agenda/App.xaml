@@ -75,6 +75,7 @@
                 <Setter Property="MonthLabelColor" Value="{DynamicResource TextoTitulo}" />
                 <Setter Property="SelectedDayTextColor" Value="{DynamicResource FundoTitulo}" />
                 <Setter Property="SelectedDayBackgroundColor" Value="{DynamicResource TextoTitulo}" />
+                <Setter Property="Culture" Value="{Binding PortuguesBrasileiro}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

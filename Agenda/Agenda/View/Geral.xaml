@@ -5,8 +5,13 @@
              Title="Visão Geral">
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Style x:Key="FrameQuadro" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoTitulo}" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="CornerRadius" Value="20" />
+            </Style>
             <Style x:Key="LabelTituloQuadro" TargetType="Label">
-                <Setter Property="TextColor" Value="{DynamicResource Key=cor-titulo}" />
+                <Setter Property="TextColor" Value="{DynamicResource TextoTitulo}" />
                 <Setter Property="FontSize" Value="18" />                
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
@@ -15,7 +20,7 @@
                 <Setter Property="VerticalTextAlignment" Value="Center" />
             </Style>
             <Style x:Key="LabelInfoQuadro" TargetType="Label">
-                <Setter Property="TextColor" Value="{DynamicResource Key=cor-titulo}" />
+                <Setter Property="TextColor" Value="{DynamicResource TextoTitulo}" />
                 <Setter Property="FontSize" Value="36" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand" />
@@ -24,7 +29,7 @@
                 <Setter Property="VerticalTextAlignment" Value="Start" />
             </Style>
             <Style x:Key="StackQuadro" TargetType="StackLayout">
-                <Setter Property="BackgroundColor" Value="{DynamicResource Key=background-titulo}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource FundoTitulo}" />
                 <Setter Property="Padding" Value="20" />
                 <Setter Property="Spacing" Value="0" />
                 <Setter Property="Margin" Value="5" />
@@ -33,9 +38,11 @@
     </ContentPage.Resources>    
     <ContentPage.Content>
         <StackLayout Padding="15" Spacing="5">
-            <StackLayout Style="{DynamicResource Key=StackQuadro}">
-                <Label Text="Tarefas" FontSize="Title" Style="{StaticResource Key=LabelTituloQuadro}" />
-            </StackLayout>
+            <Frame Style="{DynamicResource FrameQuadro}">
+                <StackLayout Style="{DynamicResource Key=StackQuadro}">
+                    <Label Text="Tarefas" FontSize="Title" Style="{DynamicResource Key=LabelTituloQuadro}" />
+                </StackLayout>
+            </Frame>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -45,34 +52,42 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <StackLayout Grid.Row="0" Grid.Column="0" Style="{DynamicResource Key=StackQuadro}">
-                    <Label Text="Hoje" Style="{StaticResource Key=LabelTituloQuadro}" />
-                    <Label Text="{Binding TotalHoje}" Style="{StaticResource Key=LabelInfoQuadro}" />
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ListarTarefas" CommandParameter="{Binding TarefasHoje}"/>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-                <StackLayout Grid.Row="0" Grid.Column="1" Style="{DynamicResource Key=StackQuadro}">
-                    <Label Text="Atrasadas" Style="{StaticResource Key=LabelTituloQuadro}" />
-                    <Label Text="{Binding TotalAtrasadas}" Style="{StaticResource Key=LabelInfoQuadro}" />
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ListarTarefas" CommandParameter="{Binding TarefasAtrasadas}"/>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-                <StackLayout Grid.Row="1" Grid.Column="0" Style="{DynamicResource Key=StackQuadro}">
-                    <Label Text="Concluídas" Style="{StaticResource Key=LabelTituloQuadro}" />
-                    <Label Text="{Binding TotalConcluidas}" Style="{StaticResource Key=LabelInfoQuadro}" />
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ListarTarefas" CommandParameter="{Binding TarefasConcluidas}"/>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-                <StackLayout Grid.Row="1" Grid.Column="1" Style="{DynamicResource Key=StackQuadro}">
-                    <Label Text="Pendentes" Style="{StaticResource Key=LabelTituloQuadro}" />
-                    <Label Text="{Binding TotalPendentes}" Style="{StaticResource Key=LabelInfoQuadro}" />
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ListarTarefas" CommandParameter="{Binding TarefasPendentes}"/>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
+                <Frame Style="{DynamicResource FrameQuadro}" Grid.Row="0" Grid.Column="0">
+                    <StackLayout Style="{DynamicResource StackQuadro}">
+                        <Label Text="Hoje" Style="{DynamicResource LabelTituloQuadro}" />
+                        <Label Text="{Binding TotalHoje}" Style="{DynamicResource LabelInfoQuadro}" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TotalHojeCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+                <Frame Style="{DynamicResource FrameQuadro}" Grid.Row="0" Grid.Column="1">
+                    <StackLayout Style="{DynamicResource StackQuadro}">
+                        <Label Text="Atrasadas" Style="{DynamicResource LabelTituloQuadro}" />
+                        <Label Text="{Binding TotalAtrasadas}" Style="{DynamicResource LabelInfoQuadro}" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TotalAtrasadasCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+                <Frame Style="{DynamicResource FrameQuadro}" Grid.Row="1" Grid.Column="0">
+                    <StackLayout Style="{DynamicResource StackQuadro}">
+                        <Label Text="Concluídas" Style="{DynamicResource LabelTituloQuadro}" />
+                        <Label Text="{Binding TotalConcluidas}" Style="{DynamicResource Key=LabelInfoQuadro}" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TotalConcluidasCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+                <Frame Style="{DynamicResource FrameQuadro}" Grid.Row="1" Grid.Column="1">
+                    <StackLayout Style="{DynamicResource StackQuadro}">
+                        <Label Text="Pendentes" Style="{DynamicResource LabelTituloQuadro}" />
+                        <Label Text="{Binding TotalPendentes}" Style="{DynamicResource LabelInfoQuadro}" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TotalPendentesCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>   
             </Grid>
         </StackLayout>
     </ContentPage.Content>

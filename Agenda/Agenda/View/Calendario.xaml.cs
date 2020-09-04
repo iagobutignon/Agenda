@@ -20,34 +20,7 @@ namespace Agenda.View
         {
             InitializeComponent();
 
-            BindingContext = new ViewModel.CalendarioViewModel();
-
-            CultureInfo culture = new CultureInfo("pt-Br");
-            ViewCalendario.Culture = culture;
-            
-            //DatabaseCor database = new DatabaseCor();
-
-            //Cor cor = database.Carregar();
-
-            //if (cor != null)
-            //{
-            //    StackCalendario.BackgroundColor = Color.FromHex(cor.Fundo);
-
-            //    ViewCalendario.BackgroundColor = Color.FromHex(cor.Fundo);
-            //    ViewCalendario.ArrowsColor = Color.FromHex(cor.Fundo);
-            //    ViewCalendario.DeselectedDayTextColor = Color.FromHex(cor.Texto);
-            //    ViewCalendario.SelectedDateColor = Color.FromHex(cor.Texto);
-            //    ViewCalendario.EventIndicatorColor = Color.FromHex(cor.Texto);
-            //    ViewCalendario.EventIndicatorTextColor = Color.FromHex(cor.Texto);
-            //    ViewCalendario.EventIndicatorSelectedColor = Color.FromHex(cor.Fundo);
-            //    ViewCalendario.EventIndicatorSelectedTextColor = Color.FromHex(cor.Fundo);
-            //    ViewCalendario.TodayOutlineColor = Color.FromHex(cor.Texto);
-            //    ViewCalendario.DaysTitleColor = Color.FromHex(cor.Texto);
-            //    ViewCalendario.YearLabelColor = Color.FromHex(cor.Texto);
-            //    ViewCalendario.MonthLabelColor = Color.FromHex(cor.Texto);
-            //    ViewCalendario.SelectedDayTextColor = Color.FromHex(cor.Fundo);
-            //    ViewCalendario.SelectedDayBackgroundColor = Color.FromHex(cor.Texto);
-            //}
+            BindingContext = new ViewModel.CalendarioViewModel(this);          
         }
 
         private void DetalheEvento(object sender, EventArgs args)

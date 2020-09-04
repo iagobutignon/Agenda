@@ -32,7 +32,7 @@ namespace Agenda.Banco
         }
         public Tarefa ObterPorId(Guid id)
         {
-            return _conexao.Table<Tarefa>().Where(a => a.ID == id).FirstOrDefault();
+            return _conexao.Table<Tarefa>().Where(a => a.Id == id).FirstOrDefault();
         }
         public List<Tarefa> Pesquisar(string palavra)
         {

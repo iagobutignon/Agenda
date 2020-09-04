@@ -21,37 +21,45 @@
                 <Setter Property="HeightRequest" Value="50"/>
             </Style>
             <Style x:Key="EstiloLabel" TargetType="Label">
-                <Setter Property="TextColor" Value="{DynamicResource Key=TextoApp}" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="16" />
             </Style>
             <Style x:Key="EstiloFrame" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{DynamicResource Key=FundoApp}" />
                 <Setter Property="Padding" Value="0"/>
                 <Setter Property="BorderColor" Value="{DynamicResource Key=FundoTitulo}"/>
             </Style>
+            <Style TargetType="controls:Calendar" >
+                <Setter Property="DaysTitleLabelStyle" Value="{StaticResource Key=EstiloTitulo}" />
+                <Setter Property="DaysLabelStyle" Value="{StaticResource Key=EstiloDia}" />
+                <Setter Property="DaysTitleHeight" Value="50" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout x:Name="StackCalendario" BackgroundColor="{DynamicResource FundoTitulo}" Padding="15">        
-        <controls:Calendar x:Name="ViewCalendario" Events="{Binding Events}" DaysTitleLabelStyle="{StaticResource Key=EstiloTitulo}" DaysLabelStyle="{StaticResource Key=EstiloDia}" Style="{DynamicResource Calendario}"  DaysTitleHeight="50">
+        <controls:Calendar Style="{DynamicResource Calendario}" Events="{Binding Events}">
             <controls:Calendar.EventTemplate>
                 <DataTemplate>
-                    <ScrollView>
-                        <StackLayout Padding="0, 10">
-                            <Frame x:Name="FrameTarefa" Style="{DynamicResource Key=EstiloFrame}">
-                                <StackLayout>
-                                    <StackLayout Orientation="Horizontal" >
-                                        <Image Style="{StaticResource EstiloImagem}" Source="{Binding Imagem}" />
-                                        <Label Style="{DynamicResource EstiloLabel}" Text="{Binding Nome}" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="16" />
-                                    </StackLayout>
-                                    <StackLayout Padding="10">
-                                        <Label Style="{DynamicResource EstiloLabel}" Text="{Binding Descricao}" LineBreakMode="WordWrap" />
-                                    </StackLayout>
+                    <StackLayout Padding="0, 10">
+                        <Frame x:Name="FrameTarefa" Style="{DynamicResource Key=EstiloFrame}">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" >
+                                    <Image Style="{DynamicResource EstiloImagem}" Source="{Binding Imagem}" />
+                                    <Label Style="{DynamicResource EstiloLabel}" Text="{Binding Nome}" />
                                 </StackLayout>
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="DetalheEvento" CommandParameter="{Binding .}"/>
-                                </Frame.GestureRecognizers>
-                            </Frame>
-                        </StackLayout>
-                    </ScrollView>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Descricao}" LineBreakMode="WordWrap" />
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="DetalheEvento" CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
                 </DataTemplate>
             </controls:Calendar.EventTemplate>
         </controls:Calendar>

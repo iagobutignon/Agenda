@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Agenda.View.Config.Configurar"
-             xmlns:nav="clr-namespace:Agenda.View.Config">
-    <nav:Configuracoes IconImageSource="Gear.png" />
+             x:Class="Agenda.View.Configuracoes.Configurar"
+             xmlns:nav="clr-namespace:Agenda.View.Configuracoes">
+    <nav:Config IconImageSource="Gear.png" />
     <nav:Temas IconImageSource="House.png" />
     <nav:NovoTema IconImageSource="RodaCor.png" />
 </TabbedPage>

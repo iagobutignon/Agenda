@@ -3,32 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Agenda.View.Detalhe"
              Title="Detalhe da Tarefa">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LabelDetalhe">
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style TargetType="Entry" x:Key="EntryDetalhe">
+                <Setter Property="IsReadOnly" Value="True" />
+            </Style>
+            <Style TargetType="Image" x:Key="ImageDetalhe">
+                <Setter Property="MinimumHeightRequest" Value="50" />
+                <Setter Property="MinimumWidthRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="15">
             <ScrollView>
                 <StackLayout>                    
                     <StackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="Nome" FontAttributes="Bold" />
-                        <Entry x:Name="Nome" IsReadOnly="True" />
+                        <Label Style="{StaticResource LabelDetalhe}" Text="Nome" />
+                        <Entry Style="{StaticResource EntryDetalhe}" Text="{Binding Nome}" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <StackLayout HorizontalOptions="FillAndExpand">
-                            <Label Text="Data" FontAttributes="Bold" />
-                            <Entry x:Name="Data" IsReadOnly="True" />
+                            <Label Style="{StaticResource LabelDetalhe}" Text="Data" />
+                            <Entry Style="{StaticResource EntryDetalhe}" Text="{Binding Data}" />
                         </StackLayout>
-                        <Image x:Name="Imagem" HorizontalOptions="End" MinimumHeightRequest="50" MinimumWidthRequest="50" WidthRequest="50" HeightRequest="50"/>
+                        <Image Style="{StaticResource ImageDetalhe}" Source="{Binding Imagem}"/>
                     </StackLayout>                    
                     <StackLayout>
-                        <Label Text="Descrição" FontAttributes="Bold" />
-                        <Editor x:Name="Descricao" HeightRequest="150" IsReadOnly="True" />
+                        <Label Style="{StaticResource LabelDetalhe}" Text="Descrição" />
+                        <Editor Text="{Binding Descricao}" HeightRequest="150" IsReadOnly="True" />
                     </StackLayout>
                     <StackLayout>
-                        <Label Text="Data de abertura" FontAttributes="Bold" />
-                        <Entry x:Name="DataAbertura" IsReadOnly="True" />
+                        <Label Style="{StaticResource LabelDetalhe}" Text="Data de abertura" />
+                        <Entry Style="{StaticResource EntryDetalhe}" Text="{Binding DataAbertura}" />
                     </StackLayout>
-                    <StackLayout x:Name="stackDataFinalizacao">
-                        <Label Text="Data de Finalização" FontAttributes="Bold" />
-                        <Entry x:Name="DataFinalizacao" IsReadOnly="True" />
+                    <StackLayout IsVisible="{Binding Finalizado}" >
+                        <Label Style="{StaticResource LabelDetalhe}" Text="Data de Finalização" />
+                        <Entry Style="{StaticResource EntryDetalhe}" Text="{Binding DataFinalizacao}" />
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
